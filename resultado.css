@@ -1,0 +1,49 @@
+/* Estilos generales del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ededed;
+    color: #333;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ededed;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Estilo del encabezado */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.resultado{
+    display: none;
+}
+
+h1 {
+    color: #8C52FF;
+    font-size: 2.5rem;
+    font-family: "Montserrat", Sans-serif;
+}
+h3{
+    font-family: "Montserrat", Sans-serif;
+    color: #00C2CB;
+}
+/* Estilos para el gráfico */
+.grafico-container {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+canvas {
+    max-width: 100%;
+    height: 40px;
+    margin-top: 20px;
+}

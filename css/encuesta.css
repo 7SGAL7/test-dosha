@@ -1,3 +1,13 @@
+body{
+    background-image: url('../iconos/CENTRO-AYURVEDA-2/30.jpg');
+}
+.titulo{
+    background-image: url('../iconos/CENTRO-AYURVEDA-2/Banner_Ayurveda.jpg');
+    background-size: cover;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    width: 50%;
+}
+
 .page-item {
     display: inline-block;
     padding: 10px;
@@ -12,5 +22,32 @@
     color: white;
 }
 .items-container {
+    padding: 30px 30px 0;
     margin-bottom: 20px;
 }
+.separador{
+    width: 100%;
+}
+
+.reverse{
+    transform: rotate(180deg);
+}
+
+.preguntas{
+    background-color: #fff;
+    background-size: cover;
+    width: 100%;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.invertir-fondo {
+    background-image: url('tu-imagen.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 500px; 
+    
+    transform: scaleX(-1);
+}
+
+

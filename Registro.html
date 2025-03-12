@@ -1,23 +1,64 @@
-
-<form>
-    <!-- Nombre completo -->
-    <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre Completo</label>
-        <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre completo" required>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Centrar formulario */
+        body{
+            font-family: 'Montserrat', sans-serif;
+            background-image: url('iconos/CENTRO-AYURVEDA-2/30.jpg');
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            width: 100%;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white text-center">
+                <h4>TEST DOSHA</h4>
+            </div>
+            <div class="card-body">
+                <form id="formulario">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Empezar</button>
+                </form>
+            </div>
+        </div>
     </div>
 
-    <!-- Teléfono -->
-    <div class="mb-3">
-        <label for="telefono" class="form-label">Teléfono</label>
-        <input type="tel" class="form-control" id="telefono" placeholder="Ingresa tu teléfono" required>
-    </div>
+    <script>
+        document.getElementById("formulario").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita el envío tradicional del formulario
+            
+            let nombre = document.getElementById("nombre").value;
+            let email = document.getElementById("email").value;
 
-    <!-- Correo electrónico -->
-    <div class="mb-3">
-        <label for="correo" class="form-label">Correo Electrónico</label>
-        <input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo electrónico" required>
-    </div>
+            // Guardar los datos en LocalStorage
+            localStorage.setItem("nombre", nombre);
+            localStorage.setItem("email", email);
 
-    <!-- Botón de envío -->
-    <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
+            // Redirigir a la página de agradecimiento
+            window.location.href = "testdoshas.html";
+        });
+    </script>
+</body>
+</html>

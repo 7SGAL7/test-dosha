@@ -1,4 +1,22 @@
-    
+function guardarYEnviar() {
+    resultado();
+
+    // Asignar los valores a los inputs ocultos
+    document.getElementById("vata").value = localStorage.getItem('vataTotal');
+    document.getElementById("pitta").value = localStorage.getItem('PittaTotal');
+    document.getElementById("kapha").value = localStorage.getItem('kaphaTotal');
+
+    console.log("Valores asignados:");
+    console.log("Vata:", document.getElementById("vata").value);
+    console.log("Pitta:", document.getElementById("pitta").value);
+    console.log("Kapha:", document.getElementById("kapha").value);
+
+    // Esperar un momento antes de enviar el formulario para asegurar que los valores se actualicen
+    setTimeout(() => {
+        document.querySelector("form").submit();
+    }, 200);
+}
+
 function resultado() {
     function obtenerSeleccionado(nombreGrupo) {
         let valor = localStorage.getItem(nombreGrupo);
@@ -10,7 +28,7 @@ function resultado() {
     }
     
     // Vata
-    var vataTotal = 0;
+    var vataTotal = 0; 
     vataTotal += obtenerSeleccionado('vataT1'); // Pregunta 1
     vataTotal += obtenerSeleccionado('vataT2'); // Pregunta 2
     vataTotal += obtenerSeleccionado('vataT3'); // Pregunta 3
@@ -98,11 +116,6 @@ function resultado() {
     KaphaTotal += obtenerSeleccionado('kaphaT75'); // Pregunta 75
 
     console.log('Total de Kapha:' + KaphaTotal);
-
-    document.getElementById("vata").value = vataTotal;
-    document.getElementById("pitta").value = PittaTotal;
-    document.getElementById("kapha").value = KaphaTotal;
-
 
     localStorage.setItem('vataTotal', vataTotal);
     localStorage.setItem('PittaTotal', PittaTotal);

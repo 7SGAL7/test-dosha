@@ -1,5 +1,5 @@
 <?php
 // Redirigir a otra página
-header("Location: testdoshas.html");
+header("Location: Ingreso.html");
 exit; 
 ?>

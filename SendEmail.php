@@ -1,12 +1,14 @@
+
 <?php
-$para = "destinatario@example.com";
+$para = $_POST["email"]; // Tomar el email del formulario
 $asunto = "Resultado Dosha";
 $mensaje = "Hola, este es el resultado de tu dosha: .";
-$cabeceras = "From: remitente@example.com" . "\r\n" . phpversion();
-
+$cabeceras = "From:  doshas@centroayurveda.mx" . "\r\n" . phpversion();
 if (mail($para, $asunto, $mensaje, $cabeceras)) {
-    echo "Correo enviado correctamente.";
+    header("Location: ResultadoDoshas.html"); 
+    exit();
 } else {
-    echo "Error al enviar el correo.";
+    header("Location: Ingreso.html"); 
+    exit();
 }
 ?>

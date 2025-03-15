@@ -9,21 +9,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">  
     <link rel="stylesheet" href="css/encuesta.css">
     <script>
-        // Verificar si los valores en localStorage existen
-        const nombre = localStorage.getItem("nombre");
-        const email = localStorage.getItem("email");
-
-        if (!nombre || !email) {
-            // Redirigir a otra página si los datos están vacíos
-            window.location.href = "Ingreso.html"; // Cambia por la URL correcta
-        }
-
-        if (nombre && email) {
-            // Insertar valores en los inputs ocultos
-            document.getElementById("nombre").value = nombre;
-            document.getElementById("email").value = email;
-        }
+        document.addEventListener("DOMContentLoaded", function () {
+            // Verificar si los valores en localStorage existen
+            const nombre = localStorage.getItem('nombre');
+            const email = localStorage.getItem('email');
+    
+            console.log(nombre);
+            console.log(email);
+    
+            if (!nombre || !email) {
+                // Redirigir a otra página si los datos están vacíos
+                window.location.href = "Ingreso.html"; // Cambia por la URL correcta
+            } else {
+                // Insertar valores en los inputs ocultos
+                document.getElementById("nombre").value = nombre;
+                document.getElementById("email").value = email;
+            }
+        });
     </script>
+    
 </head>
 <body>
     <div class="container d-flex justify-content-center" >

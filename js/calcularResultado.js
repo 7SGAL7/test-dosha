@@ -99,11 +99,12 @@ function resultado() {
 
     console.log('Total de Kapha:' + KaphaTotal);
 
+    document.getElementById("vata").value = vataTotal;
+    document.getElementById("pitta").value = PittaTotal;
+    document.getElementById("kapha").value = KaphaTotal;
+
 
     localStorage.setItem('vataTotal', vataTotal);
     localStorage.setItem('PittaTotal', PittaTotal);
     localStorage.setItem('kaphaTotal', KaphaTotal);
-
-    window.location.href = 'ResultadoDoshas.html';
-
 }

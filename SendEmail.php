@@ -11,14 +11,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (filter_var($para, FILTER_VALIDATE_EMAIL)) {
         if (mail($para, $asunto, $mensaje, $cabeceras)) {
-            echo "Correo enviado correctamente.";
+            header("Location: ResultadoDoshas.html");
+            exit;
         } else {
-            echo "Error al enviar el correo.";
+            header("Location: Ingreso.html");
+            exit; 
         }
     } else {
-        echo "Dirección de correo no válida.";
+        header("Location: Ingreso.html");   
+        exit; 
     }
 } else {
-    echo "Método no permitido.";
+    header("Location: Ingreso.html");
+    exit; 
 }
 ?>

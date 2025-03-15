@@ -1,4 +1,7 @@
 <?php
+
+require 'bd/conexion.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $para = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL); // Sanitizar email
     $asunto = "Tu Resultado Dosha - Centro Ayurveda";
@@ -31,11 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </head>
     <body>
         <h1>Resultados de tu Dosha</h1>
+        $mensaje_dosha
         <p><strong>Vata:</strong> $resultado_vata</p>
         <p><strong>Pitta:</strong> $resultado_pitta</p>
         <p><strong>Kapha:</strong> $resultado_kapha</p>
         <br>
-        $mensaje_dosha
         <br>
         <p>Gracias por realizar la prueba en <strong>Centro Ayurveda</strong>. Para más información, visita nuestra página web.</p>
 
@@ -52,6 +55,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validar email antes de enviar
     if (filter_var($para, FILTER_VALIDATE_EMAIL)) {
         if (mail($para, $asunto, $mensaje, $cabeceras)) {
+            $para_ = filter_var("centroayurvedamex@gmail.com", FILTER_SANITIZE_EMAIL);
+            $asunto_ = "El Resultado Dosha de " . $_POST['nombre'];
+
+            if(mail($para_, $asunto_, $mensaje, $cabeceras)){
+                $nombre = strtoupper($conn->real_escape_string($_POST['nombre']));
+                $correo = strtoupper($conn->real_escape_string($_POST['email']));
+            
+                // Preparar la consulta SQL para insertar los datos
+                $sql = "INSERT INTO usuarios(Name, Email) VALUES ('$nombre', '$correo')";
+            
+                $conn->query($sql);
+            }
+            //mail($para, $asunto, $mensaje, $cabeceras)
             header("Location: ResultadoDoshas.html");
             exit;
         } else {

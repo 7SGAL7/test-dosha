@@ -8,6 +8,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultado_pitta = $_POST["pitta"] ?? "No disponible";
     $resultado_kapha = $_POST["kapha"] ?? "No disponible";
 
+    // Determinar el mensaje basado en los resultados
+    if ($resultado_vata > $resultado_pitta && $resultado_vata > $resultado_kapha) {
+    $mensaje_dosha = "<h2>Tu dosha predominante es <strong>Vata</strong></h2>
+    <p>Eres creativo, enérgico y adaptable, pero puedes ser propenso a la ansiedad.</p>";
+    } elseif ($resultado_pitta > $resultado_vata && $resultado_pitta > $resultado_kapha) {
+    $mensaje_dosha = "<h2>Tu dosha predominante es <strong>Pitta</strong></h2>
+    <p>Eres decidido, competitivo y apasionado, pero puedes ser propenso al estrés.</p>";
+    } elseif ($resultado_kapha > $resultado_vata && $resultado_kapha > $resultado_pitta) {
+    $mensaje_dosha = "<h2>Tu dosha predominante es <strong>Kapha</strong></h2>
+    <p>Eres tranquilo, compasivo y estable, pero puedes ser propenso a la pereza.</p>";
+    } else {
+    $mensaje_dosha = "<h2>Tienes un equilibrio entre los doshas</h2>
+    <p>Parece que tienes características de más de un dosha. Esto significa que tienes una personalidad versátil.</p>";
+    }
+
     // Cuerpo del correo en formato HTML
     $mensaje = "
     <html>
@@ -20,7 +35,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p><strong>Pitta:</strong> $resultado_pitta</p>
         <p><strong>Kapha:</strong> $resultado_kapha</p>
         <br>
+        $mensaje_dosha
+        <br>
         <p>Gracias por realizar la prueba en <strong>Centro Ayurveda</strong>. Para más información, visita nuestra página web.</p>
+
+        <a href='https://centroayurveda.mx/'>Visita el sitio</a>
     </body>
     </html>";
 

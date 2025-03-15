@@ -23,6 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </body>
     </html>";
     
+    $cabeceras = "MIME-Version: 1.0" . "\r\n";
+    $cabeceras .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $cabeceras .= "From: doshas@centroayurveda.mx" . "\r\n";
+    $cabeceras .= "Reply-To: doshas@centroayurveda.mx" . "\r\n";
     $cabeceras = "From: doshas@centroayurveda.mx" . "\r\n" . "Reply-To: doshas@centroayurveda.mx" . "\r\n" . "X-Mailer: PHP/" . phpversion();
 
     echo "<script>console.log('Email recibido: " . $_POST["email"] . "');</script>";

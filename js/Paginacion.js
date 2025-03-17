@@ -674,12 +674,9 @@ const questions = [
         { value: "2", label: "Casi siempre o completamente." }
     ]
 }
-
-
-
 ];
 
-const itemsPerPage = 5; // Número de preguntas a mostrar por página
+const itemsPerPage = 5; // Número de preguntas por página
 let currentPage = 1; // Página actual
 
 // Función para renderizar las preguntas
@@ -693,12 +690,12 @@ function renderItems(page) {
         <div class="question">
             <p class="fw-bold">${q.question}</p>
             ${q.options.map(option => {
-                const storedAnswer = localStorage.getItem(q.name); // Obtener la respuesta almacenada
-                const isChecked = storedAnswer === option.value ? 'checked' : ''; // Verificar si es la respuesta seleccionada
+                const storedAnswer = localStorage.getItem(q.name);
+                const isChecked = storedAnswer === option.value ? 'checked' : '';
 
                 return `
                     <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="${q.name}" value="${option.value}" id="${q.name}-${option.value}" ${isChecked} />
+                        <input class="form-check-input" type="radio" name="${q.name}" value="${option.value}" id="${q.name}-${option.value}" ${isChecked} " />
                         <label class="form-check-label" for="${q.name}-${option.value}">
                             ${option.label}
                         </label>
@@ -708,43 +705,97 @@ function renderItems(page) {
         </div>
     `).join('');
 
-    // Añadir evento a los radio buttons para guardar la selección
+    // Añadir eventos a los radio buttons
     currentQuestions.forEach(q => {
         q.options.forEach(option => {
             const radioButton = document.getElementById(`${q.name}-${option.value}`);
             radioButton.addEventListener('change', function() {
                 if (this.checked) {
-                    localStorage.setItem(q.name, option.value); // Guardar la respuesta seleccionada en localStorage
+                    localStorage.setItem(q.name, option.value);
+                    updateButtonState(); // Verificar si se puede avanzar
                 }
             });
         });
     });
+
+    updateButtonState();
+    updatePaginationInfo();
 }
 
-// Función para crear los botones de paginación
-function renderPagination() {
+// Función para verificar si todas las preguntas de la página actual han sido respondidas
+function areAllQuestionsAnswered() {
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const currentQuestions = questions.slice(start, end);
+
+    return currentQuestions.every(q => localStorage.getItem(q.name) !== null);
+}
+
+// Función para contar preguntas sin responder en la página actual
+function countUnansweredQuestions() {
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const currentQuestions = questions.slice(start, end);
+
+    return currentQuestions.filter(q => !localStorage.getItem(q.name)).length;
+}
+
+// Función para actualizar la información de paginación
+function updatePaginationInfo() {
     const totalPages = Math.ceil(questions.length / itemsPerPage);
-    const paginationContainer = document.getElementById('paginationContainer');
+    document.getElementById('paginationInfo').innerText = `Página ${currentPage} de ${totalPages}`;
+}
 
-    paginationContainer.innerHTML = ''; // Limpiar botones previos
+// Función para actualizar el estado de los botones
+function updateButtonState() {
+    const nextButton = document.getElementById('nextButton');
+    const prevButton = document.getElementById('prevButton');
 
-    // Crear los botones de paginación
-    for (let i = 1; i <= totalPages; i++) {
-        const button = document.createElement('span');
-        button.textContent = i;
-        button.classList.add('page-item');
-        if (i === currentPage) {
-            button.classList.add('active');
-        }
-        button.addEventListener('click', function() {
-            currentPage = i;
-            renderItems(currentPage);
-            renderPagination();
-        });
-        paginationContainer.appendChild(button);
+    nextButton.disabled = !areAllQuestionsAnswered();
+    prevButton.disabled = currentPage === 1;
+}
+
+
+
+function updateFinalizarButtonState() {
+    const finalizarButton = document.getElementById("btnFinalizar");
+    if (currentPage === 15) {
+        finalizarButton.disabled = false;
+    } else {
+        finalizarButton.disabled = true;
     }
 }
 
-// Inicializar la paginación y renderizar la primera página
+// Modifica la función de paginación para llamar a `updateFinalizarButtonState`
+function goToNextPage() {
+    if (areAllQuestionsAnswered() && currentPage < Math.ceil(questions.length / itemsPerPage)) {
+        currentPage++;
+        renderItems(currentPage);
+        updateFinalizarButtonState(); // Verificar si debe habilitarse el botón de finalizar
+    }
+}
+
+function goToPrevPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        renderItems(currentPage);
+        updateFinalizarButtonState(); // Verificar si debe habilitarse el botón de finalizar
+    }
+}
+
+// Asegurar que el botón está en el estado correcto al cargar la página
+document.addEventListener("DOMContentLoaded", function () {
+    updateFinalizarButtonState();
+});
+
+
+// Insertar los botones y el contador de página en el HTML
+document.getElementById('paginationContainer').innerHTML = `
+    <p id="paginationInfo" class="fw-bold"></p>
+    <p id="questionsLeft" class="text-danger"></p>
+    <button id="prevButton" class="btn btn-secondary" onclick="goToPrevPage()">Anterior</button>
+    <button id="nextButton" class="btn btn-primary" onclick="goToNextPage()" disabled>Siguiente</button>
+`;
+
+// Inicializar la primera página
 renderItems(currentPage);
-renderPagination();

@@ -57,8 +57,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (mail($para, $asunto, $mensaje, $cabeceras)) {
             $para_ = filter_var("centroayurvedamex@gmail.com", FILTER_SANITIZE_EMAIL);
             $asunto_ = "El Resultado Dosha de " . $_POST['nombre'];
+            $mensaje_ = "
+            <html>
+            <head>
+                <title>Resultado de " . $_POST['nombre'] . "</title>
+            </head>
+            <body>
+                <h1>Resultados/h1>
+                $mensaje_dosha
+                <p><strong>Vata:</strong> $resultado_vata</p>
+                <p><strong>Pitta:</strong> $resultado_pitta</p>
+                <p><strong>Kapha:</strong> $resultado_kapha</p>
+                <p> email: " . $para . " </p>
+            </body>
+            </html>";
 
-            if(mail($para_, $asunto_, $mensaje, $cabeceras)){
+
+            if(mail($para_, $asunto_, $mensaje_, $cabeceras)){
                 $nombre = strtoupper($conn->real_escape_string($_POST['nombre']));
                 $correo = strtoupper($conn->real_escape_string($_POST['email']));
             

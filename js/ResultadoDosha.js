@@ -24,37 +24,34 @@ let tierraoff = document.getElementById('tierraoff');
 let etheroff = document.getElementById('etheroff');
 let vientooff = document.getElementById('vientooff');
 
-    // Calcular el total
-    let total = vataTotal + pittaTotal + kaphaTotal;
+  // Calcular el total
+  let total = vataTotal + pittaTotal + kaphaTotal;
 
-    // Calcular porcentajes (evitar división por cero)
-    let vataPorcentaje = total ? ((vata / total) * 100).toFixed(1) : 0;
-    let pittaPorcentaje = total ? ((pitta / total) * 100).toFixed(1) : 0;
-    let kaphaPorcentaje = total ? ((kapha / total) * 100).toFixed(1) : 0;
+  // Calcular porcentajes (evitar división por cero)
+  let vataPorcentaje = total ? ((vataTotal / total) * 100).toFixed(1) : 0;
+  let pittaPorcentaje = total ? ((pittaTotal / total) * 100).toFixed(1) : 0;
+  let kaphaPorcentaje = total ? ((kaphaTotal / total) * 100).toFixed(1) : 0;
 
-    // Mostrar resultados numéricos en la página
-    document.getElementById("kaphaResult").textContent = `${kapha} (${kaphaPorcentaje}%)`;
-    document.getElementById("vataResult").textContent = `${vata} (${vataPorcentaje}%)`;
-    document.getElementById("pittaResult").textContent = `${pitta} (${pittaPorcentaje}%)`;
+  // Mostrar resultados numéricos en la página
+  //document.getElementById("kaphaResultPorc").textContent = `${kapha} (${kaphaPorcentaje}%)`;
+  //document.getElementById("vataResultPorc").textContent = `${vata} (${vataPorcentaje}%)`;
+  //document.getElementById("pittaResultPorc").textContent = `${pitta} (${pittaPorcentaje}%)`;
 
 
 
 let maxValor = Math.max(vataTotal, pittaTotal, kaphaTotal);
 
-if (vata === maxValor) {
-    doshasEmpatados.push("Vata");
+if (vataTotal === maxValor) {
     document.getElementById("btn-vata").style.display = "inline-block";
     document.getElementById("viento").style.display = "inline-block";
     document.getElementById("vientooff").style.display = "none";
 }
-if (pitta === maxValor) {
-    doshasEmpatados.push("Pitta");
+if (pittaTotal === maxValor) {
     document.getElementById("btn-pitta").style.display = "inline-block";
     document.getElementById("fuego").style.display = "inline-block";
     document.getElementById("fuegooff").style.display = "none";
 }
-if (kapha === maxValor) {
-    doshasEmpatados.push("Kapha");
+if (kaphaTotal === maxValor) {
     document.getElementById("btn-kapha").style.display = "inline-block";
     document.getElementById("agua").style.display = "inline-block";
     document.getElementById("aguaoff").style.display = "none";

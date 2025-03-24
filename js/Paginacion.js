@@ -82,17 +82,8 @@ const questions = [
     ]
 },
 {
-    question: "Me cuesta mantener una rutina estable.",
-    name: "vataT10",
-    options: [
-        { value: "0", "label": "No se aplica a mí." },
-        { value: "1", "label": "A veces o parcialmente." },
-        { value: "2", "label": "Casi siempre o completamente." }
-    ]
-},
-{
     "question": "Mi estado de ánimo cambia rápidamente, pasando de la alegría a la tristeza.",
-    "name": "vataT11",
+    "name": "vataT10",
     "options": [
         { "value": "0", "label": "No se aplica a mí." },
         { "value": "1", "label": "A veces o parcialmente." },
@@ -101,7 +92,7 @@ const questions = [
 },
 {
     "question": "Me siento más energético/a por la tarde o noche.",
-    "name": "vataT12",
+    "name": "vataT11",
     "options": [
         { "value": "0", "label": "No se aplica a mí." },
         { "value": "1", "label": "A veces o parcialmente." },
@@ -110,7 +101,7 @@ const questions = [
 },
 {
     "question": "Tiendo a sentirme ansioso/a o preocupado/a con facilidad.",
-    "name": "vataT13",
+    "name": "vataT12",
     "options": [
         { "value": "0", "label": "No se aplica a mí." },
         { "value": "1", "label": "A veces o parcialmente." },
@@ -119,7 +110,7 @@ const questions = [
 },
 {
     "question": "Mis manos y pies suelen estar fríos.",
-    "name": "vataT14",
+    "name": "vataT13",
     "options": [
         { "value": "0", "label": "No se aplica a mí." },
         { "value": "1", "label": "A veces o parcialmente." },
@@ -128,7 +119,7 @@ const questions = [
 },
 {
     "question": "Me gusta probar cosas nuevas y emocionantes.",
-    "name": "vataT15",
+    "name": "vataT14",
     "options": [
         { "value": "0", "label": "No se aplica a mí." },
         { "value": "1", "label": "A veces o parcialmente." },
@@ -137,7 +128,7 @@ const questions = [
 },
 {
     question: "Hablo rápido y me muevo con agilidad.",
-    name: "vataT16",
+    name: "vataT15",
     options: [
         { value: "0", label: "No se aplica a mí." },
         { value: "1", label: "A veces o parcialmente." },
@@ -146,7 +137,7 @@ const questions = [
 },
 {
     question: "Me cuesta relajarme y desconectar.",
-    name: "vataT17",
+    name: "vataT16",
     options: [
         { value: "0", label: "No se aplica a mí." },
         { value: "1", label: "A veces o parcialmente." },
@@ -155,7 +146,7 @@ const questions = [
 },
 {
     question: "Tiendo a tener problemas de sueño, como insomnio.",
-    name: "vataT18",
+    name: "vataT17",
     options: [
         { value: "0", label: "No se aplica a mí." },
         { value: "1", label: "A veces o parcialmente." },
@@ -164,6 +155,16 @@ const questions = [
 },
 {
     question: "Me gusta viajar y cambiar de entorno con frecuencia.",
+    name: "vataT18",
+    options: [
+        { value: "0", label: "No se aplica a mí." },
+        { value: "1", label: "A veces o parcialmente." },
+        { value: "2", label: "Casi siempre o completamente." }
+    ]
+},
+
+{
+    question: "Mi pelo es fino y seco.",
     name: "vataT19",
     options: [
         { value: "0", label: "No se aplica a mí." },

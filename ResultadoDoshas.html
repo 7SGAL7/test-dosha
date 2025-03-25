@@ -12,90 +12,62 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
 
-        /*const nombre = localStorage.getItem('nombre');
+        const nombre = localStorage.getItem('nombre');
         const email = localStorage.getItem('email');
         if (!nombre || !email) {
             // Redirigir a otra página si los datos están vacíos
             window.location.href = "Ingreso.html"; // Cambia por la URL correcta
-        }*/
+        }
     </script>
 </head>
 <body>
         <header>
-            <h1>Resultados de la TEST</h1>
+            <h1>RESULTADOS TEST DOSHAS:</h1>
         </header>
-        <div class="container text-center">
+        <div class="container custom-container">
             <div class="row">
-                <div class="col-sm-12 col-md-12 ">
-                    <img class = "icon-ayuventa" src="iconos/CENTRO-AYURVEDA-2/ayurveda.png" alt="" width="90px" style="margin-bottom: 10px;">
-                </div>
-                <div class="col-sm-3 col-md-2 icon-container">
-                    <div class = "imagen fuego">
-                        <img  src="iconos/CENTRO-AYURVEDA-2/fuego-off-fill.png" alt="" width="60px" id = "fuegooff">
-                        <img  src="iconos/CENTRO-AYURVEDA-2/fuego-fill.png" alt="" width="60px" id = "fuego" style="display: none;">
-                    </div>
-                    <div class = "imagen viento">
-                        <img src="iconos/CENTRO-AYURVEDA-2/aire-off-fill.png" alt="" width="60px" id = "vientooff">
-                        <img src="iconos/CENTRO-AYURVEDA-2/aire-fill.png" alt="" width="60px" id = "viento" style="display: none;">
-                    </div>
-                    <div class = "imagen agua">
-                        <img src="iconos/CENTRO-AYURVEDA-2/agua-off-fill.png" alt="" width="60px" id = "aguaoff">
-                        <img src="iconos/CENTRO-AYURVEDA-2/agua-fill.png" alt="" width="60px" id = "agua" style="display: none;">
-                    </div>
-                    <div class = "imagen tierra">
-                        <img src="iconos/CENTRO-AYURVEDA-2/tierra-off-fill.png" alt="" width="60px" id = "tierraoff">
-                        <img src="iconos/CENTRO-AYURVEDA-2/tierra-fill.png" alt="" width="60px" id = "tierra" style="display: none;">
-                    </div>
-                    <div class = "imagen ether">
-                        <img src="iconos/CENTRO-AYURVEDA-2/eter-off-fill.png" alt="" width="60px" id = "etheroff">
-                        <img src="iconos/CENTRO-AYURVEDA-2/eter-fill.png" alt="" width="60px" id = "ether" style="display: none;">
-                    </div>
-                </div>
-
-                <div class="col-sm-8 offset-sm-2 col-md-10 offset-md-0">
+                <div class="col-sm-8 offset-sm-2 col-md-12 offset-md-0">
                     <div class="col-md-12">
-                        <div class="resultadoFinal d-flex flex-column mb-3" style="display: flex; justify-content: center; align-items: center;">
-                            <h1 id = "Title-text">** Vata predominante **</h1>
+                        <div class="resultadoFinal ">
+                            <h1 id = "Title-text"> Vata predominante </h1>
                         </div>
                     </div>
-                    <p id="Result-text" class="result-text"> Eres creativo, enérgico y adaptable, pero puedes ser propenso a la ansiedad, la irregularidad y la sequedad. 
-
-
-                        1. Características Físicas:
-                        Cuerpo: Las personas Vata suelen tener un cuerpo más delgado, con articulaciones prominentes y huesos finos.
-                        Piel: Pueden tener piel seca o áspera, especialmente si su Vata está desequilibrado.
-                        Cabello: El cabello suele ser seco y frágil, a veces con tendencia a la caída.
-                        Temperatura corporal: Suelen sentirse frías, especialmente en las extremidades (manos y pies).
-                        Digestión: La digestión puede ser irregular o más rápida de lo normal, y pueden experimentar estreñimiento o gases.
-                        2. Características Psicológicas y Emocionales:
-                        Mente: Son creativos, imaginativos y de pensamiento rápido. Les gusta la novedad y el cambio, pero también pueden sentirse fácilmente abrumados por demasiados estímulos.
-                        Emociones: Pueden ser propensos a la ansiedad, el miedo y la preocupación. También tienen una tendencia a ser inestables emocionalmente si su Vata está desequilibrado.
-                        Energía: Tienen una energía alta y variable, pero se agotan rápidamente si no descansan lo suficiente o no cuidan su dieta.
-                        3. Características de Sueño:
-                        Las personas Vata tienden a tener problemas para dormir o pueden ser propensas a despertarse durante la noche. El sueño es a menudo ligero y pueden despertarse con frecuencia debido a la ansiedad o pensamientos dispersos.
-
-
-                    </p>
-                    <div id="buttons-container">
-                        <!-- Botón para Vata -->
-                        <a id="btn-vata" href="https://centroayurveda.mx/dosha-vata/" class="btn btn-primary" style="display: none;">Ir a Vata</a>
-                        
-                        <!-- Botón para Pitta -->
-                        <a id="btn-pitta" href="https://centroayurveda.mx/dosha-pitta/" class="btn btn-danger" style="display: none;">Ir a Pitta</a>
-                        
-                        <!-- Botón para Kapha -->
-                        <a id="btn-kapha" href="https://centroayurveda.mx/dosha-kapha/" class="btn btn-success" style="display: none;">Ir a Kapha</a>
+                    <div class = "imagen-dosha">
+                        <img id="imagenDinamica" src="" alt="Imagen dinámica">
                     </div>
-                    <div class = "centrar-grafico">
-                        <div class="col-sm-5 offset-sm-2 col-md-6">
-                            <!-- Contenedor del gráfico -->
-                            <div class="grafico-container">
-                                <canvas id="pieChart"></canvas>
-                            </div>
+                    <div id="Result-text" class="result-text">
+                    </div>
+
+                    <div id="contenedor-principal">
+                        <!-- Contenedor de los porcentajes -->
+                        <div id="resultados-container-porcen">
+                            <p style="color: #4CAF50;"><strong>Kapha:</strong> <span id="kaphaResultPorc"></span>%</p>
+                            <p style="color: #2196F3;"><strong>Vata:</strong> <span id="vataResultPorc"></span>%</p>
+                            <p style="color: #FF9800;"><strong>Pitta:</strong> <span id="pittaResultPorc"></span>%</p>
+                        </div>
+                    
+                        <!-- Contenedor del gráfico -->
+                        <div class="grafico-container">
+                            <canvas id="pieChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div id="buttons-container">
+                        <div>
+                            <p>Conoce más sobre tu dosha</p>
+                        </div>
+                        <div>
+                            <!-- Botón para Vata -->
+                            <a id="btn-vata" href="https://centroayurveda.mx/dosha-vata/" class="btn btn-primary" style="display: none;" target="_blank">Vata</a>
+                            
+                            <!-- Botón para Pitta -->
+                            <a id="btn-pitta" href="https://centroayurveda.mx/dosha-pitta/" class="btn btn-danger" style="display: none;" target="_blank">Pitta</a>
+                            
+                            <!-- Botón para Kapha -->
+                            <a id="btn-kapha" href="https://centroayurveda.mx/dosha-kapha/" class="btn btn-success" style="display: none;" target="_blank">Kapha</a>
                         </div>
                     </div>
                 </div>     
-                    
             </div>
         </div>
 

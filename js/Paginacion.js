@@ -680,7 +680,6 @@ const questions = [
 const itemsPerPage = 5; // Número de preguntas por página
 let currentPage = 1; // Página actual
 
-// Función para renderizar las preguntas
 function renderItems(page) {
     const start = (page - 1) * itemsPerPage;
     const end = start + itemsPerPage;
@@ -696,7 +695,7 @@ function renderItems(page) {
 
                 return `
                     <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="${q.name}" value="${option.value}" id="${q.name}-${option.value}" ${isChecked} " />
+                        <input class="form-check-input" type="radio" name="${q.name}" value="${option.value}" id="${q.name}-${option.value}" ${isChecked} />
                         <label class="form-check-label" for="${q.name}-${option.value}">
                             ${option.label}
                         </label>
@@ -721,7 +720,28 @@ function renderItems(page) {
 
     updateButtonState();
     updatePaginationInfo();
+    updateNavigationButtons(); // Ocultar o mostrar botones según la página actual
 }
+
+// Función para actualizar los botones de navegación
+function updateNavigationButtons() {
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+    const totalPages = Math.ceil(questions.length / itemsPerPage);
+
+    if (currentPage === 1) {
+        prevButton.style.display = 'none'; // Oculta el botón "Anterior" en la primera página
+    } else {
+        prevButton.style.display = 'block'; // Muestra el botón "Anterior" si no es la primera página
+    }
+
+    if (currentPage === totalPages) {
+        nextButton.style.display = 'none'; // Oculta el botón "Siguiente" en la última página
+    } else {
+        nextButton.style.display = 'block'; // Muestra el botón "Siguiente" si no es la última página
+    }
+}
+
 
 // Función para verificar si todas las preguntas de la página actual han sido respondidas
 function areAllQuestionsAnswered() {
@@ -790,13 +810,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// Insertar los botones y el contador de página en el HTML
 document.getElementById('paginationContainer').innerHTML = `
     <p id="paginationInfo" class="fw-bold"></p>
     <p id="questionsLeft" class="text-danger"></p>
-    <button id="prevButton" class="btn btn-secondary" onclick="goToPrevPage()">Anterior</button>
-    <button id="nextButton" class="btn btn-primary" onclick="goToNextPage()" disabled>Siguiente</button>
+    <div class="pagination-buttons">
+        <button id="prevButton" class="btn btn-secondary" onclick="goToPrevPage()">Anterior</button>
+        <button id="nextButton" class="btn btn-primary" onclick="goToNextPage()" disabled>Siguiente</button>
+    </div>
 `;
+
 
 // Inicializar la primera página
 renderItems(currentPage);

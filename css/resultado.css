@@ -4,10 +4,16 @@ body {
     background-image: url('../iconos/CENTRO-AYURVEDA-2/30.jpg');
     color: #333;
     padding: 20px;
+    margin: 0;
+    padding: 0;
 }
 p {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300; /* Ligera */
+}
+h1{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; /* Ligera */
 }
 
 /* Contenedor principal */
@@ -44,40 +50,6 @@ p{
     font-family: "Montserrat", Sans-serif;
 }
 
-.imagen {
-    height: 70px;
-}
-
-.imagen img {
-    width: 100px;
-}
-
-.icon-ayuventa{
-    width: 200px;
-}
-
-.icon-container {
-    padding: 30px 0;
-    background-color: #fff;
-    border: 2px solid #ccc; /* Borde sutil */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    display: flex;
-    flex-direction: column; /* Organiza las imágenes en una columna */
-    justify-content: center; /* Centra verticalmente los elementos */
-    align-items: center; /* Centra horizontalmente los elementos */
-    gap: 20px; /* Espacio entre las imágenes */
-    transition: all 0.3s ease;
-  }
-
-  .icon-container:hover {
-    border-color: #007bff; /* Cambio de color de borde al pasar el mouse */
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3); /* Sombra más pronunciada */
-  }
-
-  
-
-
 /* Estilos para el gráfico */
 .grafico-container {
     margin-top: 0;
@@ -92,15 +64,139 @@ canvas {
 }
 
 .result-text{
-    padding: 30px;
+    text-align: center;
 }
 
-.Title-text{
+#Title-text {
     text-align: center;
+    font-size: 30px; /* Se ajusta al ancho de la pantalla */
 }
 
 .centrar-grafico{
     width: 100%;
     display: flex;
     justify-content: flex-end;
+}
+
+/* Contenedor de botones */
+#buttons-container {
+    display: flex;
+    justify-content: center;  /* Centrar los botones */
+    flex-wrap: wrap; /* Permite que se acomoden si no caben en una línea */
+    gap: 15px; /* Espaciado entre botones */
+    margin-top: 20px;
+}
+
+/* Estilos para cada botón */
+#btn-vata {
+    background-color: #2196F3; /* Azul */
+    border-color: #1976D2;
+    color: white;
+}
+
+#btn-pitta {
+    background-color: #FF9800; /* Naranja */
+    border-color: #F57C00;
+    color: white;
+}
+
+#btn-kapha {
+    background-color: #4CAF50; /* Verde */
+    border-color: #388E3C;
+    color: white;
+}
+
+/* Efecto hover */
+#buttons-container a:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+#buttons-container {
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos estén en columna */
+    align-items: center; /* Centra todo horizontalmente */
+    text-align: center; /* Centra el texto */
+    margin-top: 20px; /* Espaciado superior */
+}
+
+#buttons-container p {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px; /* Espaciado entre el texto y los botones */
+}
+
+#buttons-container div:last-child {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones se acomoden en varias líneas si es necesario */
+    justify-content: center; /* Centra los botones */
+    gap: 15px; /* Espaciado entre botones */
+}
+
+#buttons-container a {
+    padding: 5px 5px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+#buttons-container a:hover {
+    transform: scale(1.05);
+}
+
+#contenedor-principal {
+    display: flex;  /* Activa Flexbox */
+    justify-content: center;  /* Centra el contenido horizontalmente */
+    align-items: center;  /* Alinea verticalmente */
+    gap: 40px;  /* Espaciado entre el porcentaje y la gráfica */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+    margin-top: 20px;
+}
+
+#resultados-container-porcen {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea los textos a la izquierda */
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 150px; /* Para que no se reduzca demasiado */
+}
+
+#resultados-container-porcen p {
+    margin: 5px 0; /* Ajuste de márgenes */
+}
+
+.grafico-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;  /* Tamaño máximo del gráfico */
+    width: 100%;
+}
+
+.custom-container {
+    max-width: 600px; /* Cambia este valor según lo que necesites */
+    margin: 0 auto; /* Centrar el contenedor */
+    border-radius: 2%;
+}
+
+.imagen-dosha {
+    padding: 0 60px;
+    margin: 0;
+    width: 100%; /* O un tamaño específico, según sea necesario */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    overflow: hidden; /* Evita que la imagen sobresalga */
+}
+
+.imagen-dosha img {
+    max-width: 100%;
+}
+
+.resultadoFinal{
+    padding: 0;
+    margin: 0;
 }

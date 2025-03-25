@@ -59,3 +59,10 @@ body{
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 600;
 }
+
+.pagination-buttons {
+    display: flex;
+    justify-content: left;  /* Centra los botones horizontalmente */
+    gap: 10px;  /* Espacio entre los botones */
+    margin-top: 20px;  /* Agrega margen superior para separación */
+}

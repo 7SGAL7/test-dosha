@@ -9,11 +9,11 @@ body {
 }
 p {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 300; /* Ligera */
+    font-weight: 300;
 }
 h1{
     font-family: 'Montserrat', sans-serif;
-    font-weight: 800; /* Ligera */
+    font-weight: 800; 
 }
 
 /* Contenedor principal */
@@ -194,9 +194,69 @@ canvas {
 
 .imagen-dosha img {
     max-width: 100%;
+    min-width: 400px;
 }
 
 .resultadoFinal{
     padding: 0;
     margin: 0;
+}
+
+
+footer p{
+    text-align: center;
+    border: 0;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+footer a{
+    color: blueviolet;
+    text-decoration: none;
+}
+
+.footer-container{
+    padding: 0 190px;
+}
+
+.icono-footer img{
+    width: 160px;
+}
+
+
+.iconos-redes img{
+    width: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+footer{
+    background-color: #fff;
+}
+
+footer .container-center{
+    text-align: center;
+    margin: 50px 10px 10px;
+}
+
+.footer-info img{
+    width: 80px;
+}
+
+.footer-info > p{
+    color: blueviolet;
+    font-size: 10px;    
+}
+
+.icon-info{
+    padding: 30px;
+}
+
+.center-item-calle{
+    padding: 0 50px 0 10px ;
 }

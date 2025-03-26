@@ -1,11 +1,11 @@
 
 // Obtener los valores de localStorage
-const kaphaTotal = 8;
-const vataTotal = 9;
-const pittaTotal = 30;
-//const kaphaTotal = parseInt(localStorage.getItem('kaphaTotal'));
-//const vataTotal = parseInt(localStorage.getItem('vataTotal'));
-//const pittaTotal = parseInt(localStorage.getItem('PittaTotal'));
+//const kaphaTotal = 8;
+//const vataTotal = 9;
+//const pittaTotal = 30;
+const kaphaTotal = parseInt(localStorage.getItem('kaphaTotal'));
+const vataTotal = parseInt(localStorage.getItem('vataTotal'));
+const pittaTotal = parseInt(localStorage.getItem('PittaTotal'));
 
 const activo = {
   display: "block"

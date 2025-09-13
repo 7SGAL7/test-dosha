@@ -820,5 +820,16 @@ document.getElementById('paginationContainer').innerHTML = `
 `;
 
 
+document.getElementById("nextButton").addEventListener("click", function() {
+    // Desplazar hacia el top (o hacia un elemento específico)
+    document.body.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+document.getElementById("prevButton").addEventListener("click", function() {
+    // Desplazar hacia el top (o hacia un elemento específico)
+    document.body.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+
 // Inicializar la primera página
 renderItems(currentPage);

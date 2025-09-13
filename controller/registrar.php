@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Preparar la consulta SQL para insertar los datos
     $sql = "INSERT INTO employees(Name, Email) VALUES ('$nombre', '$correo')";
 
-    $conn->query($sql)
+    $conn->query($sql);
 }
 
 $conn->close();
